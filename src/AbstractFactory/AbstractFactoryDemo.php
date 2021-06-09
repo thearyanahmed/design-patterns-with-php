@@ -1,19 +1,25 @@
 <?php
 
 
-namespace Thearyanahmed\DesignPatterns\Factory;
+namespace Thearyanahmed\DesignPatterns\AbstractFactory;
 
-use Exception;
+
 use Thearyanahmed\DesignPatterns\DemonstratableInterface;
 
-class FactoryDemo implements DemonstratableInterface
+use Exception;
+
+class AbstractFactoryDemo implements DemonstratableInterface
 {
     public static function run()
     {
-        $paymentGateway = 'paypal'; // supported: paypal, stripe
-
         try {
-            $gateway = (new InternationalPaymentProcessorFactory)->getPaymentProcessor($paymentGateway);
+            print_r("abstract factory demo");
+
+            $processor = FactoryManager::getPaymentProcessorFactory('local'); // supported: international, local
+
+            $paymentGateway = 'bkash'; // supported: international -> paypal, stripe, local -> bkash
+
+            $gateway = $processor->getPaymentProcessor($paymentGateway);
 
             $token = $gateway->generateSessionToken();
 

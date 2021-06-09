@@ -3,14 +3,16 @@
 
 namespace Thearyanahmed\DesignPatterns\Factory;
 
-class PaymentProcessorFactory
+use Thearyanahmed\DesignPatterns\AbstractFactory\AbstractPaymentProcessorFactory;
+
+class InternationalPaymentProcessorFactory extends AbstractPaymentProcessorFactory
 {
     /**
      * @param string $paymentGateway
      * @return PaymentProcessorInterface
      * @throws \Exception
      */
-    public static function getPaymentProcessor(string $paymentGateway) : PaymentProcessorInterface
+    public function getPaymentProcessor(string $paymentGateway) : PaymentProcessorInterface
     {
         if($paymentGateway === 'paypal') {
             return new Paypal();
