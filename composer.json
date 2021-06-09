@@ -1,0 +1,18 @@
+{
+    "name": "thearyanahmed/design_patterns",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Thearyanahmed\\DesignPatterns\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aryan Ahmed Anik",
+            "email": "thearyanahmed@gmail.com"
+        }
+    ],
+    "require": {
+      "ext-openssl": "*"
+    }
+}
