@@ -5,9 +5,13 @@ namespace Thearyanahmed\DesignPatterns\Factory;
 
 class Paypal implements PaymentProcessorInterface
 {
+    /**
+     * @throws \Exception
+     */
     public function generateSessionToken(): string
     {
-        return 'paypal_' . bin2hex(openssl_random_pseudo_bytes(3));
+        // as you see, this is a different logic than stripe's
+        return 'paypal_' . random_int(1,20) . '_some_other_logic_' . random_int(21,40);
     }
 
     public function processPayment(string $token): void
