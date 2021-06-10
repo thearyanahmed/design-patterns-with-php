@@ -10,7 +10,7 @@ class FactoryDemo implements DemonstratableInterface
 {
     public static function run()
     {
-        $paymentGateway = 'paypal'; // supported: paypal, stripe
+        $paymentGateway = 'stripe'; // supported: paypal, stripe
 
         try {
             $gateway = (new InternationalPaymentProcessorFactory)->getPaymentProcessor($paymentGateway);
